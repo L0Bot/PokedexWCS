@@ -1,6 +1,7 @@
 import "./App.scss";
 import MyTitle from "../MyTitle/MyTitle.jsx";
 import PokemonCard from "../PokemonCard/PokemonCard.jsx";
+import Test from "../test.jsx";
 
 const pokemonList = [
   {
@@ -42,6 +43,7 @@ function App() {
         <PokemonCard pokemon={pokemonList[2]} />
         <PokemonCard pokemon={pokemonList[3]} />
       </div>
+      <Test />
     </>
   );
 }
