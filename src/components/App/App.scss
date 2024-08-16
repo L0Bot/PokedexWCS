@@ -22,24 +22,3 @@
   padding: 2rem;
   text-align: center;
 }
-// figure {
-//   padding: 0;
-//   margin: 10px;
-// }
-.card {
-  width: 150px;
-  height: 150px;
-  border-radius: 10px;
-  box-shadow: 5px 5px 10px #9d9d9d, -5px -5px 10px #ffffff;
-
-  .pokemonArtwork {
-    max-height: 110px;
-    transform: translate(-2px, 2px);
-  }
-}
-.card:hover {
-  box-shadow: inset 8px 8px 16px #9d9d9d, inset -8px -8px 16px #ffffff;
-  .pokemonArtwork {
-    transform: translate(2px, 6px);
-  }
-}

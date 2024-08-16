@@ -1,28 +1,29 @@
 import "./App.scss";
-import MyTitle from "../MyTitle";
-import PokemonCard from "../PokemonCard";
+import MyTitle from "../MyTitle/MyTitle.jsx";
+import {
+  PokemonCard1,
+  PokemonCard2,
+  PokemonCard3,
+} from "../PokemonCard/PokemonCard.jsx";
 
 function App() {
   return (
-    <div>
+    <>
       <MyTitle />
-      {/* <div 
-         style={{
-           display: "flex",
-           flexDirection: "row",
-           flexWrap: "wrap",
-           justifyContent: "center",
-           alignContent: "flex-start",
-         }}
-       >*/}
-      <PokemonCard />
-      {/* <PokemonCard /> */}
-      {/* <PokemonCard /> */}
-      {/* <PokemonCard /> */}
-      {/* <PokemonCard /> */}
-      {/* <PokemonCard /> */}
-      {/* </div> */}
-    </div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          alignContent: "flex-start",
+        }}
+      >
+        <PokemonCard1 />
+        <PokemonCard2 />
+        <PokemonCard3 />
+      </div>
+    </>
   );
 }
 
