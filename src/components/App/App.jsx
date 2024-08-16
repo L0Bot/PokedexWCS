@@ -7,6 +7,27 @@ import {
   PokemonCard3,
 } from "../PokemonCard/PokemonCard.jsx";
 
+const pokemonList = [
+  {
+    name: "bulbizarre",
+    imgSrc:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+  },
+  {
+    name: "salamèche",
+    imgSrc:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
+  },
+  {
+    name: "carapuce",
+    imgSrc:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
+  },
+  {
+    name: "mew",
+  },
+];
+
 function App() {
   return (
     <>
@@ -23,7 +44,7 @@ function App() {
         <PokemonCard1 />
         <PokemonCard2 />
         <PokemonCard3 />
-        <PokemonCard />
+        <PokemonCard pokemon={pokemonList[3]} />
       </div>
     </>
   );
