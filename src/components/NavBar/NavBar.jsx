@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-import styles from "./Buttons.module.scss";
+import styles from "./NavBar.module.scss";
 
-function Buttons({
+function NavBar({
   pokemonList,
   pokemonIndex,
   handlePrevClick,
@@ -28,4 +28,4 @@ function Buttons({
   );
 }
 
-export default Buttons;
+export default NavBar;
