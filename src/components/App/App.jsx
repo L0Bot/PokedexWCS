@@ -3,6 +3,8 @@ import MyTitle from "../MyTitle/MyTitle.jsx";
 import PokemonCard from "../PokemonCard/PokemonCard.jsx";
 import { useState } from "react";
 import Buttons from "../Buttons/Buttons.jsx";
+import DisplayMessage from "../Messages/DisplayMessage.jsx";
+import InputMessage from "../Messages/InputMessage.jsx";
 
 const pokemonList = [
   {
@@ -33,6 +35,7 @@ const pokemonList = [
 
 function App() {
   const [pokemonIndex, setPokemonIndex] = useState(0);
+  const [message, setMessage] = useState("");
 
   const handlePrevClick = () => {
     setPokemonIndex(pokemonIndex - 1);
@@ -40,6 +43,10 @@ function App() {
 
   const handleNextClick = () => {
     setPokemonIndex(pokemonIndex + 1);
+  };
+
+  const handleTextChange = (event) => {
+    setMessage(event.target.value);
   };
 
   return (
@@ -65,19 +72,10 @@ function App() {
         handlePrevClick={handlePrevClick}
         handleNextClick={handleNextClick}
       />
-      {/* {pokemonIndex > 0 ? (
-        <button onClick={handlePrevClick}>Precedent</button>
-      ) : (
-        // <div className="block"></div>
-        " "
-      )}
-
-      {pokemonIndex < pokemonList.length - 1 ? (
-        <button onClick={handleNextClick}>Suivant</button>
-      ) : (
-        // <div className="block"></div>
-        " "
-      )} */}
+      <div>
+        <InputMessage handleTextChange={handleTextChange} />
+        <DisplayMessage message={message} />
+      </div>
     </>
   );
 }
