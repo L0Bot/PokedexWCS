@@ -1,28 +1,7 @@
+/* eslint-disable react/prop-types */
 import styles from "./PokemonCard.module.scss";
 
-const pokemonList = [
-  {
-    name: "bulbizarre",
-    imgSrc:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-  },
-  {
-    name: "salamèche",
-    imgSrc:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
-  },
-  {
-    name: "carapuce",
-    imgSrc:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
-  },
-  {
-    name: "mew",
-  },
-];
-
-export function PokemonCard() {
-  const pokemon = pokemonList[3];
+export function PokemonCard({ pokemon }) {
   return (
     <figure className={styles.card}>
       {pokemon.imgSrc ? (
