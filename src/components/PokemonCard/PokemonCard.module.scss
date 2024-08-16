@@ -9,8 +9,16 @@ figure {
   box-shadow: 5px 5px 10px #9d9d9d, -5px -5px 10px #ffffff;
 
   .pokemonArtwork {
-    max-height: 110px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 110px;
     transform: translate(-2px, 2px);
+  }
+
+  figcaption {
+    text-transform: capitalize;
   }
 }
 .card:hover {

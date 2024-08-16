@@ -1,6 +1,7 @@
 import "./App.scss";
 import MyTitle from "../MyTitle/MyTitle.jsx";
 import {
+  PokemonCard,
   PokemonCard1,
   PokemonCard2,
   PokemonCard3,
@@ -22,6 +23,7 @@ function App() {
         <PokemonCard1 />
         <PokemonCard2 />
         <PokemonCard3 />
+        <PokemonCard />
       </div>
     </>
   );
