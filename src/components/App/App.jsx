@@ -2,7 +2,7 @@ import "./App.scss";
 import MyTitle from "../MyTitle/MyTitle.jsx";
 import PokemonCard from "../PokemonCard/PokemonCard.jsx";
 import { useState } from "react";
-import Buttons from "../Buttons/Buttons.jsx";
+import NavBar from "../NavBar/NavBar.jsx";
 import DisplayMessage from "../Messages/DisplayMessage.jsx";
 import InputMessage from "../Messages/InputMessage.jsx";
 
@@ -66,7 +66,7 @@ function App() {
         <PokemonCard pokemon={pokemonList[2]} />
         <PokemonCard pokemon={pokemonList[pokemonIndex]} />
       </div>
-      <Buttons
+      <NavBar
         pokemonList={pokemonList}
         pokemonIndex={pokemonIndex}
         handlePrevClick={handlePrevClick}
