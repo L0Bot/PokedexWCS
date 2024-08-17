@@ -46,18 +46,10 @@ function App() {
       <MyTitle />
       <Switcher pokemonList={pokemonList} />
       <Picker pokemonList={pokemonList} />
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          alignContent: "flex-start",
-        }}
-      >
-        <PokemonCard pokemon={pokemonList[0]} />
-        <PokemonCard pokemon={pokemonList[1]} />
-        <PokemonCard pokemon={pokemonList[2]} />
+      <div className="cardContainer">
+        {pokemonList.map((pokemon) => {
+          return <PokemonCard key={pokemon.name} pokemon={pokemon} />;
+        })}
       </div>
       <div>
         <InputMessage handleTextChange={handleTextChange} />
