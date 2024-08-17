@@ -2,9 +2,10 @@ import "./App.scss";
 import MyTitle from "../MyTitle/MyTitle.jsx";
 import PokemonCard from "../PokemonCard/PokemonCard.jsx";
 import { useState } from "react";
-import NavBar from "../NavBar/NavBar.jsx";
+import Switcher from "../Switcher/Switcher.jsx";
 import DisplayMessage from "../Messages/DisplayMessage.jsx";
 import InputMessage from "../Messages/InputMessage.jsx";
+import Picker from "../Picker/Picker.jsx";
 
 const pokemonList = [
   {
@@ -34,16 +35,7 @@ const pokemonList = [
 ];
 
 function App() {
-  const [pokemonIndex, setPokemonIndex] = useState(0);
   const [message, setMessage] = useState("");
-
-  const handlePrevClick = () => {
-    setPokemonIndex(pokemonIndex - 1);
-  };
-
-  const handleNextClick = () => {
-    setPokemonIndex(pokemonIndex + 1);
-  };
 
   const handleTextChange = (event) => {
     setMessage(event.target.value);
@@ -52,6 +44,8 @@ function App() {
   return (
     <>
       <MyTitle />
+      <Switcher pokemonList={pokemonList} />
+      <Picker pokemonList={pokemonList} />
       <div
         style={{
           display: "flex",
@@ -64,14 +58,7 @@ function App() {
         <PokemonCard pokemon={pokemonList[0]} />
         <PokemonCard pokemon={pokemonList[1]} />
         <PokemonCard pokemon={pokemonList[2]} />
-        <PokemonCard pokemon={pokemonList[pokemonIndex]} />
       </div>
-      <NavBar
-        pokemonList={pokemonList}
-        pokemonIndex={pokemonIndex}
-        handlePrevClick={handlePrevClick}
-        handleNextClick={handleNextClick}
-      />
       <div>
         <InputMessage handleTextChange={handleTextChange} />
         <DisplayMessage message={message} />
