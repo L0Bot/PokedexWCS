@@ -2,28 +2,30 @@
 import PokemonCard from "../PokemonCard/PokemonCard";
 import NavBar from "../NavBar/NavBar";
 import styles from "./Switcher.module.scss";
-import { useState } from "react";
+import { useReducer } from "react";
+const initialState = 0;
 
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "NEXT":
+      return state + 1;
+    case "PREVIOUS":
+      return state - 1;
+    default:
+      return state;
+  }
+};
 function Switcher({ pokemonList }) {
-  const [pokemonIndexSwitcher, setPokemonIndexSwitcher] = useState(0);
-
-  const handlePrevClick = () => {
-    setPokemonIndexSwitcher(pokemonIndexSwitcher - 1);
-  };
-
-  const handleNextClick = () => {
-    setPokemonIndexSwitcher(pokemonIndexSwitcher + 1);
-  };
+  const [state, dispatch] = useReducer(reducer, initialState);
   return (
     <>
       <div className={styles.container}>
-        <PokemonCard pokemon={pokemonList[pokemonIndexSwitcher]} />
+        <PokemonCard pokemon={pokemonList[state]} />
       </div>
       <NavBar
         pokemonList={pokemonList}
-        pokemonIndex={pokemonIndexSwitcher}
-        handlePrevClick={handlePrevClick}
-        handleNextClick={handleNextClick}
+        pokemonIndex={state}
+        handleClick={dispatch}
       />
     </>
   );
