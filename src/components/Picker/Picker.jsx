@@ -5,19 +5,27 @@ import PokemonCard from "../PokemonCard/PokemonCard";
 import styles from "./Picker.module.scss";
 
 function Picker({ pokemonList }) {
-  const [pokemonIndexPicker, setPokemonIndexPicker] = useState(0);
+  const defaultPokemon = {
+    name: { fr: "pick a starter" },
+    sprites: { shiny: "/questionMarkLogo.png" },
+  };
+  const [pokemonIndexPicker, setPokemonIndexPicker] = useState(null);
 
   const findIndex = (name) =>
-    pokemonList.findIndex((object) => object.name === name);
+    pokemonList.findIndex((object) => object.name.fr === name);
 
   const handleIndexChangeOnPicker = (name) => {
     setPokemonIndexPicker(findIndex(name));
   };
-  console.log(pokemonIndexPicker);
+
   return (
     <>
       <div className={styles.container}>
-        <PokemonCard pokemon={pokemonList[pokemonIndexPicker]} />
+        {pokemonIndexPicker === null ? (
+          <PokemonCard pokemon={defaultPokemon} size={20} />
+        ) : (
+          <PokemonCard pokemon={pokemonList[pokemonIndexPicker]} size={110} />
+        )}
       </div>
       <PokeButton
         pokemonList={pokemonList}
