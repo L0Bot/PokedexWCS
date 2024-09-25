@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import PokemonCard from "../PokemonCard/PokemonCard";
+import PokemonIcon from "../PokemonIcon/PokemonIcon";
 import NavBar from "../NavBar/NavBar";
 import styles from "./Switcher.module.scss";
 import { useReducer } from "react";
@@ -19,7 +19,7 @@ function Switcher({ pokemonList }) {
   return (
     <>
       <div className={styles.container}>
-        <PokemonCard pokemon={pokemonList[state]} />
+        <PokemonIcon pokemon={pokemonList[state]} size={110} />
       </div>
       <NavBar
         pokemonList={pokemonList}

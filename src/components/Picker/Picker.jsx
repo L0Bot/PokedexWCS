@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import PokeButton from "../PokeButton/PokeButton";
-import PokemonCard from "../PokemonCard/PokemonCard";
+import PokemonIcon from "../PokemonIcon/PokemonIcon";
 import styles from "./Picker.module.scss";
 
 function Picker({ pokemonList }) {
   const defaultPokemon = {
-    name: { fr: "pick a starter" },
+    name: { fr: "PICK ONE" },
     sprites: { shiny: "/questionMarkLogo.png" },
   };
   const [pokemonIndexPicker, setPokemonIndexPicker] = useState(null);
@@ -22,9 +22,9 @@ function Picker({ pokemonList }) {
     <>
       <div className={styles.container}>
         {pokemonIndexPicker === null ? (
-          <PokemonCard pokemon={defaultPokemon} size={20} />
+          <PokemonIcon pokemon={defaultPokemon} size={40} />
         ) : (
-          <PokemonCard pokemon={pokemonList[pokemonIndexPicker]} size={110} />
+          <PokemonIcon pokemon={pokemonList[pokemonIndexPicker]} size={110} />
         )}
       </div>
       <PokeButton

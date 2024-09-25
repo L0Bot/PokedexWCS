@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-import styles from "./PokemonCard.module.scss";
+import styles from "./PokemonIcon.module.scss";
 
-export default function PokemonCard({ pokemon, size }) {
+export default function PokemonIcon({ pokemon, size }) {
   return (
     <figure className={styles.card}>
       <div className={styles.imgContainer}>

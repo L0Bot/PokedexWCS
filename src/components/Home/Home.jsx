@@ -1,6 +1,5 @@
-import "./App.scss";
+import "./Home.scss";
 import MyTitle from "../MyTitle/MyTitle.jsx";
-import PokemonCard from "../PokemonCard/PokemonCard.jsx";
 import { useEffect, useState } from "react";
 import Switcher from "../Switcher/Switcher.jsx";
 import axios from "axios";
@@ -10,7 +9,7 @@ import Picker from "../Picker/Picker.jsx";
 
 const url = "https://tyradex.vercel.app/api/v1/pokemon";
 
-function App() {
+function Home() {
   const [message, setMessage] = useState("");
   const handleTextChange = (event) => {
     setMessage(event.target.value);
@@ -52,16 +51,6 @@ function App() {
           <Switcher pokemonList={pokemonList} />
           <Picker pokemonList={filteredList} />
           {/* randomizer ? random number between 1 & 1026 its my index pokemonList[rdm]  */}
-          <div className="cardContainer">
-            {pokemonList.length > 0 &&
-              pokemonList.map((pokemon) => (
-                <PokemonCard
-                  key={pokemon.name.fr}
-                  pokemon={pokemon}
-                  size={110}
-                />
-              ))}
-          </div>
           <div>
             <InputMessage handleTextChange={handleTextChange} />
             <DisplayMessage message={message} />
@@ -72,4 +61,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;
