@@ -1,7 +1,10 @@
 import "./App.scss";
 import MyTitle from "../MyTitle/MyTitle.jsx";
 import PokemonCard from "../PokemonCard/PokemonCard.jsx";
-import Test from "../test.jsx";
+import { useState } from "react";
+import Buttons from "../Buttons/Buttons.jsx";
+import DisplayMessage from "../Messages/DisplayMessage.jsx";
+import InputMessage from "../Messages/InputMessage.jsx";
 
 const pokemonList = [
   {
@@ -21,11 +24,31 @@ const pokemonList = [
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
   },
   {
+    name: "pikachu",
+    imgSrc:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
+  },
+  {
     name: "mew",
   },
 ];
 
 function App() {
+  const [pokemonIndex, setPokemonIndex] = useState(0);
+  const [message, setMessage] = useState("");
+
+  const handlePrevClick = () => {
+    setPokemonIndex(pokemonIndex - 1);
+  };
+
+  const handleNextClick = () => {
+    setPokemonIndex(pokemonIndex + 1);
+  };
+
+  const handleTextChange = (event) => {
+    setMessage(event.target.value);
+  };
+
   return (
     <>
       <MyTitle />
@@ -41,9 +64,18 @@ function App() {
         <PokemonCard pokemon={pokemonList[0]} />
         <PokemonCard pokemon={pokemonList[1]} />
         <PokemonCard pokemon={pokemonList[2]} />
-        <PokemonCard pokemon={pokemonList[3]} />
+        <PokemonCard pokemon={pokemonList[pokemonIndex]} />
       </div>
-      <Test />
+      <Buttons
+        pokemonList={pokemonList}
+        pokemonIndex={pokemonIndex}
+        handlePrevClick={handlePrevClick}
+        handleNextClick={handleNextClick}
+      />
+      <div>
+        <InputMessage handleTextChange={handleTextChange} />
+        <DisplayMessage message={message} />
+      </div>
     </>
   );
 }
