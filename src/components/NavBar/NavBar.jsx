@@ -1,16 +1,14 @@
 /* eslint-disable react/prop-types */
 import styles from "./NavBar.module.scss";
 
-function NavBar({
-  pokemonList,
-  pokemonIndex,
-  handlePrevClick,
-  handleNextClick,
-}) {
+function NavBar({ pokemonList, pokemonIndex, handleClick }) {
   return (
     <div className={styles.container}>
       {pokemonIndex > 0 ? (
-        <button className={styles.button} onClick={handlePrevClick}>
+        <button
+          className={styles.button}
+          onClick={() => handleClick({ type: "PREVIOUS" })}
+        >
           Precedent
         </button>
       ) : (
@@ -18,7 +16,10 @@ function NavBar({
       )}
 
       {pokemonIndex < pokemonList.length - 1 ? (
-        <button className={styles.button} onClick={handleNextClick}>
+        <button
+          className={styles.button}
+          onClick={() => handleClick({ type: "NEXT" })}
+        >
           Suivant
         </button>
       ) : (
